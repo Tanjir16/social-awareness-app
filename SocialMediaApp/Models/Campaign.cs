@@ -18,7 +18,7 @@ public class Campaign
     public int OwnerId { get; set; }
 
     public int OwnerUserId { get; set; }
-    public User Owner { get; set; } = null!;
+    public User? Owner { get; set; }
 
     public ICollection<CampaignImage> Images { get; set; } = [];
 }
