@@ -54,6 +54,7 @@ public class CampaignsController : Controller
         }
 
         model.OwnerUserId = userId.Value;
+        model.OwnerId = userId.Value;
         model.Status = "Pending";
         model.Title = model.Title.Trim();
         model.Description = model.Description?.Trim() ?? "";
