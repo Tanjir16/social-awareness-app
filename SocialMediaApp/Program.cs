@@ -101,4 +101,5 @@ using (var scope = app.Services.CreateScope())
     RoleSeeder.SeedRolesAsync(db).GetAwaiter().GetResult();
 }
 
+app.MapFallbackToFile("index.html");
 app.Run();
