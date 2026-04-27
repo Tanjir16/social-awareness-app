@@ -1,13 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.Models;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 
 namespace SocialMediaApp.Data;
 
-public class SocialDbContext : DbContext
+public class SocialDbContext : DbContext, IDataProtectionKeyContext
 {
     public SocialDbContext(DbContextOptions<SocialDbContext> options) : base(options)
     {
     }
+
+    public DbSet<DataProtectionKey> DataProtectionKeys { get; set; } = null!;
 
     public DbSet<User> Users => Set<User>();
     public DbSet<Role> Roles => Set<Role>();
@@ -43,4 +46,3 @@ public class SocialDbContext : DbContext
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
-

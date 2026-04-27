@@ -28,6 +28,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Mvc.Testing/10.0.5": {
         "type": "package",
         "dependencies": {
@@ -1208,6 +1224,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore/8.0.3": {
+      "sha512": "pEtuGsI9LrOkRJspjJQZ5T7KzqPn0YHkJlgHQtDAzncR1lpfRiK+CRgnERzqqGiTPz6E+MeegpZzXsXtj3Jg1w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.dataprotection.entityframeworkcore/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll",
+        "lib/net8.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.dataprotection.entityframeworkcore.8.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.dataprotection.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Mvc.Testing/10.0.5": {
@@ -2641,6 +2672,7 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "FluentAssertions >= 8.9.0",
+      "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore >= 8.0.3",
       "Microsoft.AspNetCore.Mvc.Testing >= 10.0.5",
       "Microsoft.EntityFrameworkCore >= 8.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.3",
@@ -2697,6 +2729,10 @@
           "FluentAssertions": {
             "target": "Package",
             "version": "[8.9.0, )"
+          },
+          "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.3, )"
           },
           "Microsoft.AspNetCore.Mvc.Testing": {
             "target": "Package",

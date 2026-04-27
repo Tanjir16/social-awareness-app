@@ -10,7 +10,6 @@ namespace SocialMediaApp.Controllers.Api;
 public class BusinessesApiController : ControllerBase
 {
     private readonly SocialDbContext _db;
-
     public BusinessesApiController(SocialDbContext db) => _db = db;
 
     [HttpGet]
@@ -38,9 +37,9 @@ public class BusinessesApiController : ControllerBase
             Industry = req.Industry?.Trim() ?? "",
             Website = req.Website?.Trim(),
             City = req.City?.Trim(),
-            OwnerUserId = userId.Value,
-            OwnerId = userId.Value
+            OwnerUserId = userId.Value
         };
+
         _db.Businesses.Add(business);
         await _db.SaveChangesAsync(ct);
 

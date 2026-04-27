@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yuO6AFEqPoA=",
+  "dgSpecHash": "RYPxZ0+zuFc=",
   "success": true,
   "projectFilePath": "/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/SocialMediaApp.csproj",
   "expectedPackageFiles": [
     "/Users/tanjirahmed/.nuget/packages/fluentassertions/8.9.0/fluentassertions.8.9.0.nupkg.sha512",
     "/Users/tanjirahmed/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/tanjirahmed/.nuget/packages/microsoft.aspnetcore.dataprotection.entityframeworkcore/8.0.3/microsoft.aspnetcore.dataprotection.entityframeworkcore.8.0.3.nupkg.sha512",
     "/Users/tanjirahmed/.nuget/packages/microsoft.aspnetcore.mvc.testing/10.0.5/microsoft.aspnetcore.mvc.testing.10.0.5.nupkg.sha512",
     "/Users/tanjirahmed/.nuget/packages/microsoft.aspnetcore.testhost/10.0.5/microsoft.aspnetcore.testhost.10.0.5.nupkg.sha512",
     "/Users/tanjirahmed/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

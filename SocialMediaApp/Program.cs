@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SocialMediaApp.Data;
 using Serilog;
+using Microsoft.AspNetCore.DataProtection;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -13,23 +14,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SocialDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// ✅ ADDED: Persist Data Protection keys to database
+builder.Services.AddDataProtection()
+    .PersistKeysToDbContext<SocialDbContext>();
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-
-
-    //----Modified By TANJIR For Security Concerns-------
-
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // only send cookie over HTTPS
-    options.Cookie.SameSite = SameSiteMode.Strict;           // prevents CSRF attacks
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
 });
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
-
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -43,38 +43,28 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Always use HTTPS redirection----Modified By TANJIR For Security Concerns-------
 app.UseHttpsRedirection();
 
-
-
-
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
-    //app.UseHttpsRedirection(); // duplicate No Need
 }
+
 app.UseStaticFiles();
 app.UseRouting();
 app.UseCors();
 app.UseSession();
 
-
-// ----Modified By TANJIR For Security Concerns-------
-
 app.Use(async (context, next) =>
 {
-    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-    context.Response.Headers.Add("X-Frame-Options", "DENY");
-    context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
-    context.Response.Headers.Add("Referrer-Policy", "no-referrer");
+    context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+    context.Response.Headers.Append("X-Frame-Options", "DENY");
+    context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
+    context.Response.Headers.Append("Referrer-Policy", "no-referrer");
     await next();
 });
 
-// ----Modified By TANJIR For Security Concerns-------
-// Unauthorized access logging
 app.Use(async (context, next) =>
 {
     if (context.Response.StatusCode == 401 || context.Response.StatusCode == 403)
@@ -84,16 +74,12 @@ app.Use(async (context, next) =>
     await next();
 });
 
-
-
 app.UseAuthorization();
-
 app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Ensure roles exist on startup
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<SocialDbContext>();

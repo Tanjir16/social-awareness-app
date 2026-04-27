@@ -595,3 +595,9 @@
 /Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/bin/Debug/net10.0/zh-Hant/Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 /Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/bin/Debug/net10.0/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/bin/Debug/net10.0/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/obj/Debug/net10.0/SocialMediaApp.sourcelink.json
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/bin/Debug/net10.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/obj/Debug/net10.0/compressed/x6hb18z2ln-{0}-69zedzzr7s-69zedzzr7s.gz
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/obj/Debug/net10.0/compressed/f987if38o6-{0}-5632zi2x3q-5632zi2x3q.gz
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/obj/Debug/net10.0/compressed/qkjn3r65hl-{0}-encmvctbas-encmvctbas.gz
+/Users/tanjirahmed/Downloads/social-awareness-app-main/SocialMediaApp/obj/Debug/net10.0/compressed/6b9w6dsuy9-{0}-69kjnsiwqx-69kjnsiwqx.gz
