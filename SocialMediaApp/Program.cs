@@ -83,6 +83,7 @@ app.MapControllerRoute(
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<SocialDbContext>();
+    db.Database.EnsureDeleted();
     db.Database.EnsureCreated();
     RoleSeeder.SeedRolesAsync(db).GetAwaiter().GetResult();
 }
