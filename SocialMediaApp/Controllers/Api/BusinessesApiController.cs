@@ -37,7 +37,8 @@ public class BusinessesApiController : ControllerBase
             Industry = req.Industry?.Trim() ?? "",
             Website = req.Website?.Trim(),
             City = req.City?.Trim(),
-            OwnerUserId = userId.Value
+            OwnerUserId = userId.Value,
+            OwnerId = userId.Value
         };
 
         _db.Businesses.Add(business);
