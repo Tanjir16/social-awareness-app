@@ -13,6 +13,7 @@ public class Business
     public string? City { get; set; }
 
     public int OwnerUserId { get; set; }
-    public User Owner { get; set; } = null!;
+    public int OwnerId { get; set; }
+    public User? Owner { get; set; }
 }
 
